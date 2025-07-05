@@ -1,0 +1,14 @@
+language: "ko-KR" #언어설정
+early_access: false
+reviews:
+  profile: "chill" #리뷰 스타일 지정
+  request_changes_workflow: false #코드래빗이 리뷰 끝나면 알아서 PR 승인하게끔
+  high_level_summary: true #리뷰의 전체 요약을 상단에 포함시킬지 여부
+  poem: true #시처럼 요약(재미 요소)을 활성화할지 여부
+  review_status: true #코드 리뷰 결과에 상태 마크 표시 (승인됨, 수정 필요 등)
+  collapse_walkthrough: false #코드 설명 부분을 기본으로 접을지 여부
+  auto_review:
+    enabled: true # 자동 리뷰 활성화 여부
+    drafts: false # 자동 리뷰를 PR에 바로 게시할지(true) 또는 임시 저장할지(false)
+chat:
+  auto_reply: true # 질문이 들어오면 자동 응답할지 여부 (챗봇 기능)
