@@ -1,1 +1,2 @@
 # Live-Bid
+![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/mxcoogi/Live-Bid?utm_source=oss&utm_medium=github&utm_campaign=mxcoogi%2FLive-Bid&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews)
