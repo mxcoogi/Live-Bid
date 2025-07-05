@@ -1,10 +1,9 @@
-package org.example.livebid.domain.auth;
+package org.example.livebid.global.security;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
-import java.util.List;
 
 public class CustomUserDetails implements UserDetails {
     private final Long userId;

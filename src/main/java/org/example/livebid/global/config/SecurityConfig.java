@@ -1,8 +1,6 @@
 package org.example.livebid.global.config;
 
 import lombok.RequiredArgsConstructor;
-import org.example.livebid.global.common.CustomAccessDeniedHandler;
-import org.example.livebid.global.common.CustomAuthenticationEntryPoint;
 import org.example.livebid.global.common.JwtFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -33,7 +31,7 @@ public class SecurityConfig {
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/auth/signup", "/api/auth/token", "/api/health").permitAll()
+                        .requestMatchers("/api/users/register", "/api/users/login", "/api/health").permitAll()
                         .anyRequest().authenticated()
                 )
                 .exceptionHandling(ex -> ex
