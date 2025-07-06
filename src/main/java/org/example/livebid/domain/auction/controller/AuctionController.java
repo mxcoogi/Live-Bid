@@ -1,8 +1,13 @@
 package org.example.livebid.domain.auction.controller;
 
-import org.springframework.web.bind.annotation.RestController;
+import org.example.livebid.domain.auction.dto.AuctionRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
 
-@RestController
 public interface AuctionController {
-    //
+    ResponseEntity<?> getAuctions(Pageable pageable);
+    ResponseEntity<?> getAuction(Long id);
+    ResponseEntity<?> createAuction(AuctionRequest auctionRequest, Long userId);
+    ResponseEntity<?> updateAuction(Long id, AuctionRequest request, Long userId);
+    ResponseEntity<?> deleteAuction(Long id, Long userId);
 }
