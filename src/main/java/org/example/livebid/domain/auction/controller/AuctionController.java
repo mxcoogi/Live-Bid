@@ -6,7 +6,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
 public interface AuctionController {
     ResponseEntity<?> getAuctions(Pageable pageable);
     ResponseEntity<?> getAuction(Long id);
