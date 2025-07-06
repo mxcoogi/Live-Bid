@@ -3,7 +3,6 @@ package org.example.livebid.domain.auction.service;
 import lombok.RequiredArgsConstructor;
 import org.example.livebid.domain.auction.dto.AuctionRequest;
 import org.example.livebid.domain.auction.dto.AuctionResponse;
-import org.example.livebid.domain.auction.dto.AuctionUpdateRequest;
 import org.example.livebid.domain.auction.entity.Auction;
 import org.example.livebid.domain.auction.enums.AuctionException;
 import org.example.livebid.domain.auction.repository.AuctionRepository;

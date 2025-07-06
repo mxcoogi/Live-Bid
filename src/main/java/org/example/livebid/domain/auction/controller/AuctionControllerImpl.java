@@ -2,7 +2,6 @@ package org.example.livebid.domain.auction.controller;
 
 import org.example.livebid.domain.auction.dto.AuctionRequest;
 import org.example.livebid.domain.auction.dto.AuctionResponse;
-import org.example.livebid.domain.auction.dto.AuctionUpdateRequest;
 import org.example.livebid.domain.auction.service.AuctionService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -41,20 +40,27 @@ public class AuctionControllerImpl implements AuctionController{
 
     @Override
     @PostMapping
-    public ResponseEntity<?> createAuction(AuctionRequest auctionRequest, @AuthenticationPrincipal Long userId) {
+    public ResponseEntity<?> createAuction(
+            @RequestBody AuctionRequest auctionRequest, @AuthenticationPrincipal Long userId) {
         AuctionResponse response = auctionService.createAuction(auctionRequest, userId);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
     @Override
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateAuction(@PathVariable Long id,  AuctionRequest request, @AuthenticationPrincipal Long userId) {
+    public ResponseEntity<?> updateAuction(
+            @PathVariable Long id,
+            @RequestBody AuctionRequest request,
+            @AuthenticationPrincipal Long userId) {
         AuctionResponse response = auctionService.updateAuction(id, request, userId);
         return ResponseEntity.ok(response);
     }
 
     @Override
-    public ResponseEntity<?> deleteAuction(Long id, @AuthenticationPrincipal Long userId) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteAuction(
+            @PathVariable Long id,
+            @AuthenticationPrincipal Long userId) {
         AuctionResponse response = auctionService.deleteAuction(id, userId);
         return ResponseEntity.ok(response);
     }

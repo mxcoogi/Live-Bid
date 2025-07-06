@@ -3,7 +3,6 @@ package org.example.livebid.domain.auction.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import org.example.livebid.domain.auction.dto.AuctionRequest;
-import org.example.livebid.domain.auction.dto.AuctionUpdateRequest;
 import java.time.LocalDateTime;
 
 @Entity
