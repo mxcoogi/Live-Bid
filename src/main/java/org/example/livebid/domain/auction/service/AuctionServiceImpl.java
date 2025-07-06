@@ -53,8 +53,8 @@ public class AuctionServiceImpl implements AuctionService{
 
     @Override
     @Transactional
-    public AuctionResponse updateAuction(AuctionUpdateRequest request, Long userId) {
-        Auction findAuction = auctionRepository.findById(request.id())
+    public AuctionResponse updateAuction(Long id, AuctionRequest request, Long userId) {
+        Auction findAuction = auctionRepository.findById(id)
                 .orElseThrow(()-> new CustomException(AuctionException.AUCTION_NOT_FOUND));
         if(!findAuction.getUserId().equals(userId)){
             throw new CustomException(AuctionException.UNAUTHORIZED_ACCESS);

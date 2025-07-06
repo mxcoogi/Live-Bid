@@ -10,6 +10,6 @@ public interface AuctionController {
     ResponseEntity<?> getAuctions(Pageable pageable);
     ResponseEntity<?> getAuction(Long id);
     ResponseEntity<?> createAuction(AuctionRequest auctionRequest, Long userId);
-    ResponseEntity<?> updateAuction(AuctionUpdateRequest request, Long userId);
+    ResponseEntity<?> updateAuction(Long id, AuctionRequest request, Long userId);
     ResponseEntity<?> deleteAuction(Long id, Long userId);
 }
