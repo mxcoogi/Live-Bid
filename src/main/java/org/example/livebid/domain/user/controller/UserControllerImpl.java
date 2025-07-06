@@ -1,5 +1,6 @@
 package org.example.livebid.domain.user.controller;
 
+import jakarta.validation.Valid;
 import org.example.livebid.domain.user.dto.UserLoginRequest;
 import org.example.livebid.domain.user.dto.UserLoginResponse;
 import org.example.livebid.domain.user.dto.UserRegisterRequest;
@@ -22,7 +23,7 @@ public class UserControllerImpl implements UserController{
     @Override
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(
-            @RequestBody UserRegisterRequest request
+            @Valid @RequestBody UserRegisterRequest request
     ) {
         UserRegisterResponse response = userService.registerUser(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
@@ -30,7 +31,8 @@ public class UserControllerImpl implements UserController{
 
     @Override
     @PostMapping("/login")
-    public ResponseEntity<?> loginUser(@RequestBody UserLoginRequest request) {
+    public ResponseEntity<?> loginUser(
+            @Valid @RequestBody UserLoginRequest request) {
         UserLoginResponse response = userService.loginUser(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }

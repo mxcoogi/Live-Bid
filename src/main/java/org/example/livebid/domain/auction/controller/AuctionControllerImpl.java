@@ -1,5 +1,6 @@
 package org.example.livebid.domain.auction.controller;
 
+import jakarta.validation.Valid;
 import org.example.livebid.domain.auction.dto.AuctionRequest;
 import org.example.livebid.domain.auction.dto.AuctionResponse;
 import org.example.livebid.domain.auction.service.AuctionService;
@@ -41,7 +42,7 @@ public class AuctionControllerImpl implements AuctionController{
     @Override
     @PostMapping
     public ResponseEntity<?> createAuction(
-            @RequestBody AuctionRequest auctionRequest, @AuthenticationPrincipal Long userId) {
+            @Valid @RequestBody AuctionRequest auctionRequest, @AuthenticationPrincipal Long userId) {
         AuctionResponse response = auctionService.createAuction(auctionRequest, userId);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
@@ -50,7 +51,7 @@ public class AuctionControllerImpl implements AuctionController{
     @PutMapping("/{id}")
     public ResponseEntity<?> updateAuction(
             @PathVariable Long id,
-            @RequestBody AuctionRequest request,
+            @Valid @RequestBody AuctionRequest request,
             @AuthenticationPrincipal Long userId) {
         AuctionResponse response = auctionService.updateAuction(id, request, userId);
         return ResponseEntity.ok(response);

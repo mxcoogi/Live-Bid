@@ -46,7 +46,7 @@ public class UserServiceImpl implements UserService{
         User findUser = userRepository.findByEmail(email)
                 .orElseThrow(()->new CustomException(UserException.USER_NOT_FOUND));
 
-        if(findUser.getPassword().equals(passwordEncoder.encode(request.password()))){
+        if(!passwordEncoder.matches(request.password(), findUser.getPassword())){
             throw new CustomException(UserException.INVALID_PASSWORD);
         }
 
